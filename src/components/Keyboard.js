@@ -9,7 +9,7 @@ function Keyboard() {
       <Button>⯇</Button>
       <Button>⯈</Button>
       <Button>⌫</Button>
-      <Button disabled>1</Button>
+      <Button>1 </Button>
       <Button>2 abc</Button>
       <Button>3 def</Button>
       <Button>4 ghi</Button>
@@ -20,7 +20,7 @@ function Keyboard() {
       <Button>9 wxyz</Button>
       <Button>*</Button>
       <Button>0 ⌴</Button>
-      <Button disabled>#</Button>
+      <Button>#</Button>
     </div>
   );
 }

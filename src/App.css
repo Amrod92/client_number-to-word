@@ -6,6 +6,10 @@
   margin: 24px auto;
 }
 
+.Screen {
+  margin-bottom: 5%;
+}
+
 @keyframes cursor {
   0% {
     border-color: transparent;

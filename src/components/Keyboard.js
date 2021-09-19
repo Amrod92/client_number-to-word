@@ -5,6 +5,7 @@ import './Keyboard.css';
 function Keyboard() {
   return (
     <div className='keyboard'>
+      {/* Keyboard */}
       <Button>⯇</Button>
       <Button>⯈</Button>
       <Button>⌫</Button>

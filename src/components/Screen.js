@@ -5,6 +5,7 @@ function Screen() {
   return (
     <div className='Screen'>
       <span className='Screen-text-container'>
+        {/* Screen to display text */}
         <p>This is a test</p>
       </span>
     </div>

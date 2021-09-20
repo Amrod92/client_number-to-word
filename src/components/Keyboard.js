@@ -5,7 +5,7 @@ import Screen from './Screen';
 import './Keyboard.css';
 
 function Keyboard(props) {
-  const MAX_LENGTH = 6; // Max length of the word
+  const MAX_LENGTH = 7; // Max length of the word
   const MIN_LENGTH = 0; // Min length of the word
 
   const [number, setNumber] = useState(['']);

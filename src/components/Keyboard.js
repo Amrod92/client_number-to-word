@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
+import { Button, Alert } from 'react-bootstrap/';
 import axios from 'axios';
 import Screen from './Screen';
 import './Keyboard.css';
 
 function Keyboard(props) {
   const MAX_LENGTH = 6; // Max length of the word
+  const MIN_LENGTH = 0; // Min length of the word
 
-  const [number, setNumber] = useState([]);
+  const [number, setNumber] = useState(['']);
+  const [validation, setValidation] = useState();
 
   // Add element inside array
   const addNumber = e => {
@@ -19,30 +21,37 @@ function Keyboard(props) {
   let concatenateNumber = number.join('');
 
   // Clear the array
-  const clearNumber = e => {
+  const clearNumber = () => {
     setNumber((number.length = 0));
   };
 
   // Remove the last element from the array
-  const backNumber = e => {
-    // It just removes one element from the array. Should be FIX
-    setNumber(number.splice(-1));
+  const backNumber = () => {
+    setNumber(number.pop());
   };
 
   const sendData = () => {
-    axios
-      .post(`http://localhost:9000/api/v1/phonewords/${concatenateNumber}`)
-      .then(response => {
-        props.onGettingData(response.data.phonewords);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    if (number.length > MIN_LENGTH) {
+      axios
+        .post(`http://localhost:9000/api/v1/phonewords/${concatenateNumber}`)
+        .then(response => {
+          props.onGettingData(response.data.phonewords);
+        })
+        .catch(error => {
+          setValidation(true);
+        });
+      setValidation(false);
+    } else {
+      setValidation(true);
+    }
   };
 
   return (
     <div>
       <Screen typeNumber={concatenateNumber} />
+      {!validation ? null : (
+        <Alert variant='danger'>This is not a valid phone number</Alert>
+      )}
       <div
         className='keyboard'
         value={'example'}

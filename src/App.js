@@ -22,7 +22,7 @@ function App() {
       <div className='App'>
         <p style={{ marginLeft: '15px', marginTop: '10px', fontSize: '30px' }}>
           Use the keypad below to enter the phone number (2-9) with a maximim
-          length of 6 digits.
+          length of 7 digits.
         </p>
         <div className='keypad'>
           <Card className='keypad-card'>

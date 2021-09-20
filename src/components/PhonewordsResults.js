@@ -1,14 +1,16 @@
 import React from 'react';
 import Badge from 'react-bootstrap/Badge';
+import './PhonewordsResults.css';
 
 function PhonewordsResults({ data }) {
+  // ID to use as a parameter for key
   var id = 0;
 
   return (
     <div>
-      <h3>List of Phone Words for the number: </h3>
+      <h3 className='title'>List of Phone Words: </h3>
       {Object.keys(data).map(key => (
-        <Badge bg='secondary' key={id++}>
+        <Badge bg='secondary' className='phoneword' key={id++}>
           {data[key]}
         </Badge>
       ))}

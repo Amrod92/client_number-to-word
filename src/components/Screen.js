@@ -4,8 +4,8 @@ import './Screen.css';
 
 function Screen(props) {
   return (
-    <div className='Screen'>
-      <span className='Screen-text-container'>
+    <div className='screen'>
+      <span className='screen-text-container'>
         {/* Screen to display text */}
         <Form>
           <Form.Group className='mb-3'>

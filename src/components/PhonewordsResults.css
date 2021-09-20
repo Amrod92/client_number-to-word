@@ -1,0 +1,10 @@
+.title {
+  text-align: center;
+}
+
+.phoneword {
+  float: center;
+  width: 200px;
+  margin: 15px;
+  padding: 10px;
+}

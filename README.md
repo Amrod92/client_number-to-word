@@ -6,11 +6,11 @@ Number-to-words generator, developed in fullstack Javascript. This is the fronte
 
 This is a phone numbers to [phonewords](https://en.wikipedia.org/wiki/Phoneword) converter application. You can use the provided keypad to digit the numbers and once ready press the "Generate Phone Words" button to get a list of phone words.
 
-The frontend has a validation to check if the numbers arephone number are integers only (2-9), is not empty and maximum length 6. The backend code/documentation can be found [here](https://github.com/Amrod92/server_number-to-word).
+The frontend has a validation to check if the numbers arephone number are integers only (2-9), is not empty and maximum length 7. The backend code/documentation can be found [here](https://github.com/Amrod92/server_number-to-word).
 
 ## Screenshots 🧪
 
-![App Screenshots](https://i.ibb.co/19cRzDq/screen.png)
+![App Screenshots](https://i.ibb.co/BG3Rmhk/screen.png)
 
 ## Run Locally and Dependencies 🛠
 

@@ -1,16 +1,23 @@
+import React, { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Keyboard from './components/Keyboard';
-import Screen from './components/Screen';
 import PhonewordsResults from './components/PhonewordsResults';
 
 function App() {
+  const [dataList, setDataList] = useState({});
+  const gettingData = data => {
+    const saveData = {
+      ...data
+    };
+    setDataList(saveData);
+  };
+
   return (
     <div className='App'>
       <div>
-        <Screen />
-        <Keyboard />
-        <PhonewordsResults />
+        <Keyboard onGettingData={gettingData} />
+        <PhonewordsResults data={dataList} />
       </div>
     </div>
   );

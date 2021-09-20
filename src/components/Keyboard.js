@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import Screen from './Screen';
 import './Keyboard.css';
 
-function Keyboard() {
+function Keyboard(props) {
+  const MAX_LENGTH = 6; // Max length of the word
+
   const [number, setNumber] = useState([]);
 
   // Add element inside array
   const addNumber = e => {
-    setNumber([...number, e]);
+    if (number.length <= MAX_LENGTH) {
+      setNumber([...number, e]);
+    }
   };
 
   let concatenateNumber = number.join('');
@@ -20,14 +25,15 @@ function Keyboard() {
 
   // Remove the last element from the array
   const backNumber = e => {
-    setNumber(number.pop());
+    // It just removes one element from the array. Should be FIX
+    setNumber(number.splice(-1));
   };
 
   const sendData = () => {
     axios
       .post(`http://localhost:9000/api/v1/phonewords/${concatenateNumber}`)
       .then(response => {
-        console.log(response);
+        props.onGettingData(response.data.phonewords);
       })
       .catch(error => {
         console.log(error);
@@ -36,13 +42,14 @@ function Keyboard() {
 
   return (
     <div>
+      <Screen typeNumber={concatenateNumber} />
       <div
         className='keyboard'
         value={'example'}
         onClick={e => addNumber(e.target.value, 'value')}
       >
         {/* Keyboard */}
-        <Button variant='secondary' value='1'>
+        <Button variant='secondary' disabled value='1'>
           1{' '}
         </Button>
         <Button variant='secondary' value='2'>
@@ -72,7 +79,7 @@ function Keyboard() {
         <Button variant='warning' onClick={backNumber}>
           Back
         </Button>
-        <Button variant='secondary' value='0'>
+        <Button variant='secondary' disabled value='0'>
           0
         </Button>
         <Button variant='danger' onClick={clearNumber}>
@@ -81,7 +88,7 @@ function Keyboard() {
       </div>
       <div className='d-grid gap-2 m-2'>
         <Button variant='outline-success' size='lg' onClick={sendData}>
-          Send
+          Generate Phone Words
         </Button>
       </div>
     </div>

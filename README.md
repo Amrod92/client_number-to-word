@@ -1,6 +1,6 @@
-# FullStack "Number-to-Word" 📱
+# FullStack Frontend "Number-to-Word" Phoneword 📱
 
-Number-to-words generator, developed in fullstack Javascript.
+Number-to-words generator, developed in fullstack Javascript. This is the frontend side.
 
 ## Description 📖
 
